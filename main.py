@@ -1,8 +1,9 @@
+from http.client import HTTPException
 from typing import Optional, List
 from uuid import uuid4, UUID
 
 # from Tools.scripts.serve import app
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from models import User, Gender, Role
 
 # instance of FASTAPI
@@ -44,6 +45,25 @@ async def fetch_users():
 async def register_user(user: User):
     db.append(user)
     return {"id": user.id}
+
+@app.delete("/api/v1/users/{user_id}")
+async def delete_user(user_id: UUID):
+    for user in db:
+        if user.id == user_id:
+            db.remove(user)
+            return
+    raise HTTPException (
+        status_code=404,
+        detail=f"user with id: {user_id} does not exist"
+    )
+
+@app.put("/api/v1/users/{user}")
+async def modify_user(user: User):
+    for u in db:
+        if u.id == user.id:
+            
+
+
 
 
 #starter code
