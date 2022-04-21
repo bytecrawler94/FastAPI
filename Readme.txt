@@ -65,7 +65,23 @@ TRACE:
 
 PATCH:
 
-___________________________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________________________________________
+
 
 from our web browser we can only send GET request. We cannot send POST request.
+
+
+http://localhost:8000/docs#/  => this is interactive API documentation
+
+http://localhost:8000/redoc   => another interactive API documentation 
+
+____________________________________________________________________________________________________________________________________________________________________________
+
+There are 5 categories of HTTP response status code: 
+
+1. Informational responses
+2. Successful responses
+3. Redirection responses
+4. Client error responses
+5. Server error responses
 
